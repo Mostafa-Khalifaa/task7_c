@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1764583599 source:/home/mostafa/Desktop/C++/task7_c/main.cpp
+1764762064 source:/home/mostafa/Desktop/C++/task7_c/main.cpp
 	<iostream>
 	"complex.h"
 
-1764583599 source:/home/mostafa/Desktop/C++/task7_c/complex.cpp
+1764762122 source:/home/mostafa/Desktop/C++/task7_c/complex.cpp
+	<cmath>
 	"complex.h"
 
-1764583599 /home/mostafa/Desktop/C++/task7_c/complex.h
+1764762064 /home/mostafa/Desktop/C++/task7_c/complex.h
 	<iostream>
 

@@ -1,36 +1,80 @@
-#ifndef COMPLEX_H_INCLUDED
-#define COMPLEX_H_INCLUDED
+
+#ifndef COMPLEX_H
+#define COMPLEX_H
 
 #include <iostream>
+using namespace std;
 
 class Complex {
 private:
-    double real;
-    double imag;
+    double* real;
+    double* imag;
 
 public:
-    // Constructors
+    // ===== CONSTRUCTORS =====
     Complex();
-    Complex(double r, double i);
+    Complex(double r, double i = 0);
+    Complex(const Complex& other);
 
-    // Get & Set functions
+    // ===== DESTRUCTOR =====
+    ~Complex();
+
+    // ===== ASSIGNMENT OPERATORS =====
+    Complex& operator=(const Complex& other);
+
+    // ===== GETTERS AND SETTERS =====
     double getReal() const;
     double getImag() const;
     void setReal(double r);
     void setImag(double i);
 
-    // Arithmetic Operators
+    // ===== BINARY ARITHMETIC OPERATORS =====
     Complex operator+(const Complex& other) const;
     Complex operator-(const Complex& other) const;
     Complex operator*(const Complex& other) const;
     Complex operator/(const Complex& other) const;
 
-    // Comparison
+    // ===== COMPOUND ASSIGNMENT OPERATORS =====
+    Complex& operator+=(const Complex& other);
+    Complex& operator-=(const Complex& other);
+    Complex& operator*=(const Complex& other);
+    Complex& operator/=(const Complex& other);
+
+    // ===== UNARY OPERATORS =====
+    Complex operator-() const;
+    Complex operator+() const;
+
+    // ===== INCREMENT/DECREMENT OPERATORS =====
+    Complex& operator++();
+    Complex operator++(int);
+    Complex& operator--();
+    Complex operator--(int);
+
+    // ===== COMPARISON OPERATORS =====
     bool operator==(const Complex& other) const;
     bool operator!=(const Complex& other) const;
+    bool operator<(const Complex& other) const;
+    bool operator>(const Complex& other) const;
+    bool operator<=(const Complex& other) const;
+    bool operator>=(const Complex& other) const;
 
-    // Print Method
+    // ===== LOGICAL OPERATORS =====
+    bool operator!() const;
+    operator bool() const;
+
+    // ===== SUBSCRIPT OPERATOR =====
+    double& operator[](int index);
+    const double& operator[](int index) const;
+
+    // ===== TYPE CONVERSION =====
+    operator double() const;
+
+    // ===== DISPLAY =====
     void display() const;
+
+    // ===== FRIEND FUNCTIONS (STREAM OPERATORS) =====
+    friend ostream& operator<<(ostream& os, const Complex& c);
+    friend istream& operator>>(istream& is, Complex& c);
 };
 
-#endif // COMPLEX_H_INCLUDED
+#endif

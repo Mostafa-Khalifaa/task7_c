@@ -3,29 +3,33 @@
 using namespace std;
 
 int main() {
-    Complex a(2, 3);
-    Complex b(1, 4);
+    Complex c1(3, 4);
+    Complex c2(1, -2);
 
-    Complex add = a + b;
-    Complex sub = a - b;
-    Complex mul = a * b;
-    Complex div = a / b;
+    cout << "c1 = " << c1 << endl;
+    cout << "c2 = " << c2 << endl;
 
-    cout << "a = ";
-    a.display();
-    cout << "b = ";
-    b.display();
+    // Arithmetic
+    cout << "\nc1 + c2 = " << (c1 + c2) << endl;
+    cout << "c1 * c2 = " << (c1 * c2) << endl;
 
-    cout << "\na + b = ";
-    add.display();
-    cout << "a - b = ";
-    sub.display();
-    cout << "a * b = ";
-    mul.display();
-    cout << "a / b = ";
-    div.display();
+    // Unary
+    cout << "\n-c1 = " << (-c1) << endl;
 
-    cout << "\nAre they equal? " << (a == b ? "Yes" : "No") << endl;
+    // Increment
+    Complex c3(5, 3);
+    cout << "\nc3 = " << c3 << endl;
+    cout << "++c3 = " << (++c3) << endl;
+
+    // Comparison
+    cout << "\nc1 == c2: " << (c1 == c2 ? "true" : "false") << endl;
+
+    // Subscript
+    cout << "\nc1[0] = " << c1[0] << ", c1[1] = " << c1[1] << endl;
+
+    Complex c4(c1);
+    c1[0] = 99;
+    cout << "\nAfter c1[0]=99: c1=" << c1 << ", c4=" << c4 << " (deep copy!)" << endl;
 
     return 0;
 }
